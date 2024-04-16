@@ -1,7 +1,7 @@
 name: escapable_padding
-description: "A new Flutter package project."
+description: "A very easy way to add padding to widget lists, with the ability to escape the padding for specific widgets."
 version: 1.0.0
-homepage: https://github.com/dutchcodingcompany/escapable_padding
+homepage: https://github.com/DutchCodingCompany/escapable_padding
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
