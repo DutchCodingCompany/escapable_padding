@@ -1,4 +1,7 @@
 # Escapable Padding
+[![style: very good analysis](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis) 
+![Coverage](./coverage_badge.svg?sanitize=true)
+
 
 Ever wanted to add padding to all items in a list *but with one exception*? Usually this would make you manually add padding to all children except the one you don't want to pad. With Escapable Padding you can pad all items in a Flex, Column or Row, and wrap exceptions with an Escape widget to make them break out of that padding.
 

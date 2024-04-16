@@ -2,6 +2,8 @@ import 'package:escapable_padding/escapable_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'fakes/fake_build_context.dart';
+
 /// This is a widget test for the EscapablePadding class in `src/escapable_padding_example.dart`.
 /// The test checks if the EscapablePadding widget wraps the flexChild with padding.
 void main() {
@@ -146,6 +148,18 @@ void main() {
       );
     });
   });
-}
 
-class FakeBuildContext extends Fake implements BuildContext {}
+  test('Escapable Padding must contain a Row, Column or Flex', () {
+    const widget = EscapablePadding(
+      padding: EdgeInsets.symmetric(vertical: 50),
+      flexChild: Text('test'),
+    );
+
+    expect(
+      () {
+        widget.build(FakeBuildContext());
+      },
+      throwsAssertionError,
+    );
+  });
+}

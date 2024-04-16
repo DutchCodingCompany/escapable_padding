@@ -28,10 +28,6 @@ class EscapablePadding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (flexChild is! Column && flexChild is! Row && flexChild is! Flex) {
-      assert(false, 'flexChild must be Column, Row or Flex');
-    }
-
     switch (flexChild) {
       case Column():
         assert(padding.top == 0 && padding.bottom == 0, 'Vertical padding is not supported for Column');
@@ -64,6 +60,11 @@ class EscapablePadding extends StatelessWidget {
         );
     }
 
-    throw Exception('flexChild must be Column, Row or Flex');
+    assert(false, 'flexChild must be Column, Row or Flex');
+
+    // This line is unreachable, but it is required to satisfy the return type of the method.
+    // coverage:ignore-start
+    return Container();
+    // coverage:ignore-end
   }
 }
