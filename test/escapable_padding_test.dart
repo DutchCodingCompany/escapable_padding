@@ -150,14 +150,12 @@ void main() {
   });
 
   test('Escapable Padding must contain a Row, Column or Flex', () {
-    const widget = EscapablePadding(
-      padding: EdgeInsets.symmetric(vertical: 50),
-      flexChild: Text('test'),
-    );
-
     expect(
       () {
-        widget.build(FakeBuildContext());
+        EscapablePadding(
+          padding: const EdgeInsets.symmetric(vertical: 50),
+          flexChild: const Text('test'),
+        );
       },
       throwsAssertionError,
     );

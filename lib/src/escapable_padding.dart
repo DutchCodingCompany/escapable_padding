@@ -5,7 +5,12 @@ import 'package:flutter/widgets.dart';
 /// A widget that provides padding that can be escaped by [Escaped] widget.
 class EscapablePadding extends StatelessWidget {
   /// Creates a widget that provides padding that can be escaped by [Escaped] widget.
-  const EscapablePadding({required this.padding, required this.flexChild, super.key});
+  const EscapablePadding({required this.padding, required this.flexChild, super.key})
+      : assert(
+          flexChild is Column || flexChild is Row || flexChild is Flex,
+          'flexChild must be of type Column, Row, or Flex.',
+        ),
+        super();
 
   /// The padding that should be applied to the [flexChild].
   final EdgeInsets padding;
@@ -59,8 +64,6 @@ class EscapablePadding extends StatelessWidget {
           children: flex.children.map(_wrapWithPaddingIfUnescaped).toList(),
         );
     }
-
-    assert(false, 'flexChild must be Column, Row or Flex');
 
     // This line is unreachable, but it is required to satisfy the return type of the method.
     // coverage:ignore-start
